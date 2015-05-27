@@ -32,6 +32,7 @@
 
 	<div class="fw-option-typography-option fw-option-typography-option-size fw-border-box-sizing fw-col-sm-2" style="display: <?php echo (!isset($option['components']['size']) || $option['components']['size'] != false) ? 'block' : 'none' ?>;">
 		<select data-type="size" name="<?php echo esc_attr($option['attr']['name']) ?>[size]" class="fw-option-typography-option-size-input">
+			<option value="" <?php echo !$data['value']['size'] ? ' selected="selected" ' : ''; ?>><?php echo __("Default size", "unyson") ?></option>
 		<?php for ($i = 9; $i <= 70; $i++): ?>
 			<option value="<?php echo $i ?>" <?php echo $data['value']['size'] === $i ? ' selected="selected" ' : ''; ?>><?php echo $i ?>px</option>
 		<?php endfor; ?>
@@ -47,6 +48,7 @@
 
 	<div class="fw-option-typography-option fw-option-typography-option-style fw-border-box-sizing fw-col-sm-3" style="display: <?php echo (!isset($option['components']['family']) || $option['components']['family'] != false) ? 'block' : 'none'; ?>;">
 		<select data-type="style" name="<?php echo esc_attr($option['attr']['name']) ?>[style]" class="fw-option-typography-option-style-input">
+			<option value="" <?php if (!$data['value']['style']): ?> selected="selected"<?php endif; ?>><?php echo __("Default style", "unyson"); ?></option>
 		<?php if (in_array($data['value']['family'], $fonts['standard'])): ?>
 		<?php foreach (
 			array(
